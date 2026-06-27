@@ -3,7 +3,7 @@ import { CanopyLogo } from "@/components/CanopyLogo";
 const OPTIONS = [
   {
     description: "Send a note about sponsorships, partnerships, or speaking with the CANOPY team.",
-    href: "mailto:hello@canopy.co?subject=Contact%20CANOPY",
+    href: "https://docs.google.com/spreadsheets/d/1K1rOYKsOu0uvXqMkbVo-OOrqJD7Nn_zIZ88x6mltt6E/edit?gid=278767379#gid=278767379",
     label: "Contact",
   },
   {
