@@ -1,0 +1,62 @@
+# CANOPY Website Instructions
+
+This is a minimalist black-and-white brand landing page for CANOPY.
+
+## Design direction
+
+- Do not build a traditional SaaS website.
+- No navbar unless explicitly requested.
+- No cards, gradients, illustrations, 3D graphics, or colorful UI.
+- Use a stark black-and-white visual system.
+- The page should feel like a minimal art/design/research brand entrance.
+- Large logo, sparse copy, strong whitespace.
+
+## Stack
+
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+
+## Components
+
+Prefer this structure:
+
+- app/page.tsx
+- components/CanopyHero.tsx
+- components/CanopyLogo.tsx
+- components/MagneticText.tsx if needed
+
+## Animation rules
+
+- Use transform and opacity only when possible.
+- Keep animations subtle and high-end.
+- Respect prefers-reduced-motion.
+- Avoid layout-shifting animations.
+- The eye animation is the main interaction.
+- Do not over-animate the whole logo.
+
+## Logo
+
+The current logo image is stored at:
+
+public/canopy-logo.jpg
+
+Use the image as the base layer, then overlay an animated SVG eye over the O/eye area.
+
+Keep eye overlay settings as editable constants:
+
+const EYE_OVERLAY = {
+  left: "...",
+  top: "...",
+  width: "...",
+  height: "..."
+}
+
+## Quality bar
+
+Before finishing:
+- run npm.cmd run lint if available
+- check TypeScript errors
+- make sure npm.cmd run dev works
+- verify mobile responsiveness

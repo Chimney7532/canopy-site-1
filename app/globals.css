@@ -1,0 +1,265 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f1ea;
+  --foreground: #000000;
+  --canopy-surface: #f4f1ea;
+  --canopy-surface-rgb: 244 241 234;
+  --canopy-ink: #000000;
+  --canopy-ink-rgb: 0 0 0;
+  --canopy-pupil: #f4f1ea;
+  --canopy-stanford: #8c1515;
+  --canopy-duration: 500ms;
+  --canopy-ease: ease-in-out;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-canopy-mono);
+  --font-mono: var(--font-canopy-mono);
+}
+
+html,
+body {
+  background: var(--canopy-surface) !important;
+  color: var(--canopy-ink);
+  margin: 0;
+  min-height: 100%;
+  overflow: hidden;
+  width: 100%;
+  transition:
+    background-color var(--canopy-duration) var(--canopy-ease),
+    color var(--canopy-duration) var(--canopy-ease) !important;
+}
+
+body {
+  background: var(--canopy-surface) !important;
+  color: var(--canopy-ink);
+  font-family: var(--font-canopy-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: geometricPrecision;
+}
+
+main {
+  background: var(--canopy-surface) !important;
+  color: var(--canopy-ink);
+  transition:
+    background-color var(--canopy-duration) var(--canopy-ease),
+    color var(--canopy-duration) var(--canopy-ease) !important;
+}
+
+section {
+  color: var(--canopy-ink);
+  transition: color var(--canopy-duration) var(--canopy-ease) !important;
+}
+
+main {
+  width: 100vw;
+}
+
+.canopy-logo-shell,
+.canopy-logo-button {
+  background: transparent !important;
+  background-color: transparent !important;
+  transition: none !important;
+}
+
+p,
+a,
+footer {
+  transition:
+    background-color var(--canopy-duration) var(--canopy-ease),
+    border-color var(--canopy-duration) var(--canopy-ease),
+    color var(--canopy-duration) var(--canopy-ease) !important;
+}
+
+.canopy-logo-image {
+  filter: contrast(1.08) saturate(0) brightness(0.98);
+  mix-blend-mode: normal;
+  transition: filter var(--canopy-duration) var(--canopy-ease) !important;
+}
+
+.canopy-pupil {
+  fill: var(--canopy-pupil);
+  mix-blend-mode: normal;
+  transition: fill var(--canopy-duration) var(--canopy-ease) !important;
+}
+
+html.canopy-inverted,
+html.canopy-inverted body {
+  --canopy-surface: #000000;
+  --canopy-surface-rgb: 0 0 0;
+  --canopy-ink: #f4f1ea;
+  --canopy-ink-rgb: 244 241 234;
+  --canopy-pupil: #000000;
+  --canopy-stanford: #b83a4b;
+  background: var(--canopy-surface) !important;
+  background-color: var(--canopy-surface) !important;
+  color: var(--canopy-ink) !important;
+}
+
+html.canopy-inverted main {
+  background: var(--canopy-surface) !important;
+  background-color: var(--canopy-surface) !important;
+  color: var(--canopy-ink) !important;
+}
+
+html.canopy-inverted section {
+  color: var(--canopy-ink) !important;
+}
+
+html.canopy-inverted .canopy-logo-shell,
+html.canopy-inverted .canopy-logo-button {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: var(--canopy-ink) !important;
+  transition: none !important;
+}
+
+html.canopy-inverted p,
+html.canopy-inverted a,
+html.canopy-inverted footer {
+  color: var(--canopy-ink) !important;
+}
+
+html.canopy-inverted .canopy-logo-image {
+  filter: invert(1) contrast(1.08) saturate(0) brightness(1.02) !important;
+  mix-blend-mode: normal !important;
+}
+
+html.canopy-inverted .canopy-cta {
+  border-color: var(--canopy-ink) !important;
+  color: var(--canopy-ink) !important;
+}
+
+html.canopy-inverted .canopy-cta:hover,
+html.canopy-inverted .canopy-cta:focus-visible {
+  background: var(--canopy-ink) !important;
+  color: var(--canopy-surface) !important;
+}
+
+.canopy-copy {
+  font-weight: 430;
+}
+
+.canopy-copy-primary {
+  color: rgb(var(--canopy-ink-rgb) / 0.82);
+}
+
+.canopy-copy-secondary {
+  color: rgb(var(--canopy-ink-rgb) / 0.62);
+}
+
+.canopy-stanford {
+  color: var(--canopy-stanford);
+  transition: color var(--canopy-duration) var(--canopy-ease);
+}
+
+.canopy-footer {
+  color: rgb(var(--canopy-ink-rgb) / 0.55);
+}
+
+.canopy-wordmark,
+.canopy-option,
+.canopy-interest-logo {
+  color: var(--canopy-ink);
+  text-decoration: none;
+  transition:
+    background-color var(--canopy-duration) var(--canopy-ease),
+    border-color var(--canopy-duration) var(--canopy-ease),
+    color var(--canopy-duration) var(--canopy-ease) !important;
+}
+
+.canopy-interest-logo-img {
+  display: block;
+  filter: contrast(1.08) saturate(0) brightness(0.98);
+  transition: filter var(--canopy-duration) var(--canopy-ease) !important;
+}
+
+html.canopy-inverted .canopy-interest-logo-img {
+  filter: invert(1) contrast(1.08) saturate(0) brightness(1.02) !important;
+}
+
+.canopy-cta {
+  background: transparent;
+  border: 1px solid var(--canopy-ink);
+  color: var(--canopy-ink);
+  min-height: 38px;
+  transition:
+    background-color var(--canopy-duration) var(--canopy-ease),
+    border-color var(--canopy-duration) var(--canopy-ease),
+    color var(--canopy-duration) var(--canopy-ease),
+    transform 220ms ease !important;
+}
+
+.canopy-cta:hover,
+.canopy-cta:focus-visible {
+  background: var(--canopy-ink);
+  color: var(--canopy-surface);
+  transform: translateY(-1px);
+}
+
+.canopy-option:hover,
+.canopy-option:focus-visible {
+  background: var(--canopy-ink);
+  color: var(--canopy-surface);
+}
+
+.canopy-option-description {
+  color: rgb(var(--canopy-ink-rgb) / 0.66);
+  transition: color var(--canopy-duration) var(--canopy-ease) !important;
+}
+
+.canopy-option:hover .canopy-option-description,
+.canopy-option:focus-visible .canopy-option-description {
+  color: rgb(var(--canopy-surface-rgb) / 0.86);
+}
+
+.canopy-option-arrow {
+  transform: translateX(0);
+  transition: transform 220ms ease !important;
+}
+
+.canopy-option:hover .canopy-option-arrow,
+.canopy-option:focus-visible .canopy-option-arrow {
+  transform: translateX(5px);
+}
+
+.canopy-cta-mark {
+  display: inline-flex;
+  transform: translateX(0);
+  transition: transform 220ms ease;
+}
+
+.canopy-cta:hover .canopy-cta-mark,
+.canopy-cta:focus-visible .canopy-cta-mark {
+  transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+
+  .canopy-cta span {
+    transition: none !important;
+  }
+
+  .canopy-cta,
+  .canopy-cta-mark,
+  .canopy-logo-image,
+  html,
+  body,
+  main,
+  section,
+  .canopy-logo-shell,
+  .canopy-logo-button,
+  p,
+  a,
+  footer {
+    transition: none !important;
+  }
+}
