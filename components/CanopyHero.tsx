@@ -18,7 +18,7 @@ export function CanopyHero() {
             className="canopy-cta mt-8 inline-flex min-h-11 items-center gap-3 px-5 py-3 text-[13px] font-bold uppercase leading-none outline-none sm:text-[14px]"
             href="/interest"
           >
-            <span>Express Interest in CANOPY</span>
+            <span>View Current Update</span>
             <span aria-hidden="true" className="canopy-cta-mark">
               -&gt;
             </span>
