@@ -1,15 +1,19 @@
 import { CanopyLogo } from "@/components/CanopyLogo";
 
+const INTEREST_FORM_URL =
+  "https://docs.google.com/spreadsheets/d/1K1rOYKsOu0uvXqMkbVo-OOrqJD7Nn_zIZ88x6mltt6E/edit?gid=278767379#gid=278767379";
+
 const OPTIONS = [
   {
-    description: "Send a note about sponsorships, partnerships, or speaking with the CANOPY team.",
+    description: "For sponsors, partners, and collaborators who want to speak with the CANOPY team.",
     href: "mailto:hello@canopy.co?subject=Contact%20CANOPY",
     label: "Contact",
   },
   {
-    description: "Share your project or team for early access to the CANOPY circle.",
-    href: "mailto:hello@canopy.co?subject=Express%20Interest%20in%20CANOPY",
+    description: "For student founders and early teams who want to share what they are building.",
+    href: INTEREST_FORM_URL,
     label: "Interest",
+    target: "_blank",
   },
 ];
 
@@ -36,6 +40,8 @@ export default function InterestPage() {
               className="canopy-option group flex min-h-[150px] flex-col justify-between border-b border-current px-5 py-5 text-left outline-none last:border-b-0 sm:min-h-[188px] sm:border-r sm:border-b-0 sm:px-7 sm:py-7 sm:last:border-r-0"
               href={option.href}
               key={option.label}
+              rel={option.target ? "noreferrer" : undefined}
+              target={option.target}
             >
               <span className="flex items-start justify-between gap-8 text-[25px] font-semibold leading-none sm:text-[30px]">
                 {option.label}
