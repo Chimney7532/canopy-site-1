@@ -206,9 +206,10 @@ export function CanopyLogo({
         className="canopy-logo-button relative w-full cursor-pointer bg-transparent p-0 outline-none"
         onClick={toggleInversion}
       >
+        <span aria-hidden="true" className="canopy-logo-mark block w-full" />
         <svg
           aria-label="CANOPY"
-          className="canopy-logo-svg block h-auto w-full"
+          className="canopy-logo-svg pointer-events-none absolute inset-0 h-full w-full"
           role="img"
           viewBox={`0 0 ${LOGO_VIEWBOX.width} ${LOGO_VIEWBOX.height}`}
           xmlns="http://www.w3.org/2000/svg"
@@ -218,15 +219,6 @@ export function CanopyLogo({
               <ellipse cx={EYE_MASK.cx} cy={EYE_MASK.cy} rx={EYE_MASK.rx} ry={EYE_MASK.ry} />
             </clipPath>
           </defs>
-          <image
-            className="canopy-logo-image"
-            height={LOGO_VIEWBOX.height}
-            href="/canopy-logo.svg"
-            preserveAspectRatio="xMidYMid meet"
-            width={LOGO_VIEWBOX.width}
-            x="0"
-            y="0"
-          />
           <g clipPath={`url(#${pupilClipId})`}>
             <motion.path
               className="canopy-pupil"

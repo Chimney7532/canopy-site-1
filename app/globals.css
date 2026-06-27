@@ -74,10 +74,19 @@ footer {
     color var(--canopy-duration) var(--canopy-ease) !important;
 }
 
-.canopy-logo-image {
-  filter: contrast(1.08) saturate(0) brightness(0.98);
-  mix-blend-mode: normal;
-  transition: filter var(--canopy-duration) var(--canopy-ease) !important;
+.canopy-logo-mark {
+  aspect-ratio: 743 / 169;
+  background: var(--canopy-ink);
+  display: block;
+  -webkit-mask-image: url("/canopy-logo.svg");
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-image: url("/canopy-logo.svg");
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  transition: background-color var(--canopy-duration) var(--canopy-ease) !important;
 }
 
 .canopy-pupil {
@@ -121,11 +130,6 @@ html.canopy-inverted p,
 html.canopy-inverted a,
 html.canopy-inverted footer {
   color: var(--canopy-ink) !important;
-}
-
-html.canopy-inverted .canopy-logo-image {
-  filter: invert(1) contrast(1.08) saturate(0) brightness(1.02) !important;
-  mix-blend-mode: normal !important;
 }
 
 html.canopy-inverted .canopy-cta {
@@ -250,7 +254,7 @@ html.canopy-inverted .canopy-interest-logo-img {
 
   .canopy-cta,
   .canopy-cta-mark,
-  .canopy-logo-image,
+  .canopy-logo-mark,
   html,
   body,
   main,
