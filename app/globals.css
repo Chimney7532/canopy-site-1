@@ -65,9 +65,15 @@ main {
   transition: none !important;
 }
 
+.canopy-logo-shell {
+  animation: canopyLogoIntro 960ms var(--canopy-ease) 130ms backwards;
+  transform-origin: center;
+}
+
 h1,
 p,
 a,
+button,
 span,
 footer,
 .canopy-event-badge,
@@ -172,6 +178,7 @@ html.canopy-inverted .canopy-cta:focus-visible {
 
 .canopy-footer {
   color: rgb(var(--canopy-ink-rgb) / 0.55);
+  animation: canopyFadeIn 420ms var(--canopy-ease) 520ms backwards;
 }
 
 .canopy-wordmark,
@@ -196,22 +203,31 @@ html.canopy-inverted .canopy-interest-logo-img {
 }
 
 .canopy-cta {
-  background: transparent;
+  background: var(--canopy-surface);
   border: 1px solid var(--canopy-ink);
+  box-shadow:
+    4px 4px 0 rgb(var(--canopy-ink-rgb) / 0.28),
+    9px 9px 18px rgb(var(--canopy-ink-rgb) / 0.08);
   color: var(--canopy-ink);
   min-height: 38px;
+  animation: canopyFadeIn 520ms var(--canopy-ease) 620ms backwards;
   transition:
-    background-color var(--canopy-duration) var(--canopy-ease),
-    border-color var(--canopy-duration) var(--canopy-ease),
-    color var(--canopy-duration) var(--canopy-ease),
-    transform 220ms ease !important;
+  background-color var(--canopy-duration) var(--canopy-ease),
+  border-color var(--canopy-duration) var(--canopy-ease),
+  box-shadow 220ms ease,
+  color var(--canopy-duration) var(--canopy-ease),
+  transform 220ms ease !important;
+  transform: translate(-3px, -3px);
 }
 
 .canopy-cta:hover,
 .canopy-cta:focus-visible {
   background: var(--canopy-ink);
+  box-shadow:
+    1px 1px 0 rgb(var(--canopy-ink-rgb) / 0.4),
+    4px 4px 10px rgb(var(--canopy-ink-rgb) / 0.08);
   color: var(--canopy-surface);
-  transform: translateY(-1px);
+  transform: translate(0, 0);
 }
 
 .canopy-option:hover,
@@ -236,6 +252,7 @@ html.canopy-inverted .canopy-interest-logo-img {
 }
 
 .canopy-option-arrow {
+  margin-left: auto;
   transform: translateX(0);
   transition: transform 220ms ease !important;
 }
@@ -259,6 +276,7 @@ html.canopy-inverted .canopy-interest-logo-img {
 .canopy-event-badge {
   border: 1px solid var(--canopy-ink);
   color: var(--canopy-ink);
+  animation: canopyFadeUp 680ms var(--canopy-ease) 420ms backwards;
 }
 
 .canopy-event-kicker {
@@ -271,7 +289,233 @@ html.canopy-inverted .canopy-event-kicker {
   color: #f4f1ea !important;
 }
 
+.canopy-mode-tab {
+  background: transparent;
+  border: 0;
+  color: var(--canopy-ink);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  min-height: 38px;
+  padding: 0 20px;
+  text-transform: uppercase;
+  width: 132px;
+}
+
+.canopy-mode-tab.is-active {
+  background: var(--canopy-stanford);
+  color: #f4f1ea;
+}
+
+.canopy-mode-tab + .canopy-mode-tab {
+  border-left: 1px solid var(--canopy-ink);
+}
+
+.canopy-control-button,
+.canopy-inline-action {
+  align-items: center;
+  background: var(--canopy-surface);
+  border: 1px solid var(--canopy-ink);
+  color: var(--canopy-ink);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 700;
+  justify-content: center;
+  letter-spacing: 0;
+  line-height: 1;
+  min-height: 34px;
+  padding: 0 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    background-color var(--canopy-duration) var(--canopy-ease),
+    border-color var(--canopy-duration) var(--canopy-ease),
+    color var(--canopy-duration) var(--canopy-ease),
+    transform 180ms ease !important;
+  white-space: nowrap;
+}
+
+.canopy-site-controls {
+  max-width: calc(100vw - 2.5rem);
+  filter: drop-shadow(4px 4px 0 rgb(var(--canopy-ink-rgb) / 0.18));
+  isolation: isolate;
+  transform: translateZ(0);
+}
+
+.canopy-site-controls .canopy-control-button {
+  width: 86px;
+}
+
+.canopy-site-controls .canopy-control-button + .canopy-control-button {
+  margin-left: -1px;
+}
+
+.canopy-site-controls .canopy-control-button:hover,
+.canopy-site-controls .canopy-control-button:focus-visible {
+  position: relative;
+  transform: translateY(-2px);
+  z-index: 2;
+}
+
+@media (max-width: 639px) {
+  .canopy-site-controls {
+    right: 14px !important;
+    top: 58px !important;
+  }
+
+  .canopy-control-button {
+    font-size: 10px;
+    min-height: 30px;
+    padding: 0 9px;
+  }
+
+  .canopy-site-controls .canopy-control-button {
+    width: 68px;
+  }
+
+  .canopy-mode-tab {
+    font-size: 11px;
+    min-height: 40px;
+    padding: 0 12px;
+    width: 124px;
+  }
+}
+
+.canopy-control-button:hover,
+.canopy-control-button:focus-visible,
+.canopy-inline-action:hover,
+.canopy-inline-action:focus-visible {
+  background: var(--canopy-ink);
+  color: var(--canopy-surface);
+}
+
+.canopy-settings-popover {
+  box-shadow: 4px 4px 0 rgb(var(--canopy-ink-rgb) / 0.18);
+  color: var(--canopy-ink);
+}
+
+.canopy-field {
+  display: grid;
+  gap: 8px;
+}
+
+.canopy-field label {
+  color: rgb(var(--canopy-ink-rgb) / 0.72);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.canopy-field input {
+  background: transparent;
+  border: 1px solid var(--canopy-ink);
+  color: var(--canopy-ink);
+  display: block;
+  font: inherit;
+  line-height: 1.2;
+  min-height: 44px;
+  outline: none;
+  padding: 0 13px;
+  width: 100%;
+  transition:
+    background-color var(--canopy-duration) var(--canopy-ease),
+    border-color var(--canopy-duration) var(--canopy-ease),
+    color var(--canopy-duration) var(--canopy-ease) !important;
+}
+
+.canopy-field input:focus {
+  box-shadow: 3px 3px 0 rgb(var(--canopy-ink-rgb) / 0.2);
+}
+
+.canopy-text-reveal {
+  animation: canopyTextReveal 520ms var(--canopy-ease) backwards;
+}
+
+.canopy-options-grid {
+  position: relative;
+}
+
+.canopy-options-grid::before,
+.canopy-options-grid::after,
+.canopy-option::before,
+.canopy-option::after {
+  background: var(--canopy-ink);
+  content: "";
+  position: absolute;
+  z-index: 1;
+}
+
+.canopy-options-grid::before,
+.canopy-options-grid::after,
+.canopy-option::before {
+  height: 1px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  width: 100%;
+}
+
+.canopy-options-grid::before {
+  top: 0;
+}
+
+.canopy-options-grid::after {
+  bottom: 0;
+}
+
+.canopy-option {
+  border: 0 !important;
+  overflow: hidden;
+  position: relative;
+}
+
+.canopy-option::before {
+  bottom: 0;
+}
+
+.canopy-options-grid::before,
+.canopy-options-grid::after,
+.canopy-option::before {
+  animation: canopyLineReveal 360ms var(--canopy-ease) both;
+}
+
+.canopy-options-grid::before {
+  animation-delay: 300ms;
+}
+
+.canopy-option:nth-child(1)::before {
+  animation-delay: 360ms;
+}
+
+.canopy-option:nth-child(2)::before {
+  animation-delay: 420ms;
+}
+
+.canopy-option:nth-child(3)::before,
+.canopy-options-grid::after {
+  animation-delay: 480ms;
+}
+
+@media (min-width: 640px) {
+  .canopy-option::before {
+    display: none;
+  }
+
+  .canopy-option:not(:last-child)::after {
+    height: 100%;
+    right: 0;
+    top: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    width: 1px;
+    animation: canopyVerticalLineReveal 360ms var(--canopy-ease) 420ms both;
+  }
+}
+
 .canopy-back-link {
+  animation: canopyFadeIn 620ms var(--canopy-ease) 560ms backwards;
   border: 1px solid transparent;
   color: rgb(var(--canopy-ink-rgb) / 0.7);
   text-decoration: none;
@@ -289,6 +533,111 @@ html.canopy-inverted .canopy-event-kicker {
   transform: translateX(-2px);
 }
 
+.canopy-intro {
+  animation: canopyFadeUp 720ms var(--canopy-ease) 520ms backwards;
+}
+
+.canopy-interest-heading {
+  animation: canopyFadeUp 720ms var(--canopy-ease) 520ms backwards;
+}
+
+.canopy-interest-date {
+  animation: canopyFadeUp 700ms var(--canopy-ease) 620ms backwards;
+}
+
+.canopy-interest-summary {
+  animation: canopyFadeUp 700ms var(--canopy-ease) 700ms backwards;
+}
+
+.canopy-option {
+  animation: canopyOptionReveal 420ms var(--canopy-ease) both;
+}
+
+.canopy-option:nth-child(1) {
+  animation-delay: 420ms;
+}
+
+.canopy-option:nth-child(2) {
+  animation-delay: 480ms;
+}
+
+.canopy-option:nth-child(3) {
+  animation-delay: 540ms;
+}
+
+@keyframes canopyLogoIntro {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes canopyFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes canopyFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes canopyOptionReveal {
+  0% {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes canopyLineReveal {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes canopyVerticalLineReveal {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes canopyTextReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -303,7 +652,19 @@ html.canopy-inverted .canopy-event-kicker {
   .canopy-cta,
   .canopy-cta-mark,
   .canopy-back-link,
+  .canopy-event-badge,
+  .canopy-footer,
+  .canopy-intro,
+  .canopy-interest-date,
+  .canopy-interest-heading,
+  .canopy-interest-summary,
   .canopy-logo-mark,
+  .canopy-option,
+  .canopy-options-grid::before,
+  .canopy-options-grid::after,
+  .canopy-option::before,
+  .canopy-option::after,
+  .canopy-text-reveal,
   .canopy-page-shell,
   html,
   body,
@@ -316,6 +677,7 @@ html.canopy-inverted .canopy-event-kicker {
   p,
   a,
   footer {
+    animation: none !important;
     transition: none !important;
   }
 }
