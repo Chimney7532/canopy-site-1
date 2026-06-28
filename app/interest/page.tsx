@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CanopyLogo } from "@/components/CanopyLogo";
 
 const APPLY_FORM_URL =
@@ -27,7 +28,14 @@ const OPTIONS = [
 
 export default function InterestPage() {
   return (
-    <main className="relative h-svh overflow-y-auto px-5 sm:px-8">
+    <main className="canopy-page-shell relative h-svh overflow-y-auto px-5 sm:px-8">
+      <Link
+        className="canopy-back-link fixed left-5 top-5 z-10 inline-flex min-h-9 items-center gap-2 px-3 py-2 text-[12px] font-semibold uppercase leading-none sm:left-8 sm:top-7"
+        href="/"
+      >
+        <span aria-hidden="true">&lt;-</span>
+        <span>CANOPY</span>
+      </Link>
       <section className="mx-auto flex min-h-svh w-full max-w-[920px] flex-col justify-center gap-7 py-14 sm:gap-8 sm:py-10">
         <div className="mx-auto">
           <CanopyLogo className="w-[min(62vw,340px)] sm:w-[min(29vw,390px)]" />
@@ -35,16 +43,19 @@ export default function InterestPage() {
 
         <div className="sm:hidden">
           <div className="mx-auto max-w-[24rem] text-center">
-            <div className="mx-auto inline-flex border-y border-current px-4 py-2">
-              <p className="canopy-stanford text-[12px] font-semibold uppercase leading-none">
+            <div className="canopy-event-badge mx-auto inline-flex items-stretch overflow-hidden">
+              <span className="canopy-event-kicker px-5 py-2.5 text-[12px] font-bold uppercase leading-none">
                 Current Event
-              </p>
+              </span>
+              <span className="px-5 py-2.5 text-[12px] font-bold uppercase leading-none">
+                2026 Update
+              </span>
             </div>
             <h1 className="canopy-copy canopy-copy-primary mt-4 text-[18px] font-semibold leading-[1.45]">
-              Stanford Robotics x Physical AI Founder-Investor Summit
+              <span className="canopy-stanford">Stanford Robotics</span> x Physical AI Founder-Investor Summit
             </h1>
             <p className="canopy-copy canopy-copy-secondary mx-auto mt-3 text-[13px] leading-[1.75]">
-              July 26, 2026 at Stanford Faculty Club.
+              July 26, 2026 at <span className="canopy-stanford">Stanford Faculty Club</span>.
             </p>
             <p className="canopy-copy canopy-copy-secondary mx-auto mt-3 max-w-[21rem] text-[13px] leading-[1.75]">
               A closed-door founder-investor summit for robotics, Physical AI, and real-world intelligence.
@@ -76,16 +87,19 @@ export default function InterestPage() {
 
         <div className="hidden sm:block">
           <div className="mx-auto max-w-[760px] text-center">
-            <div className="mx-auto inline-flex border-y border-current px-5 py-2">
-              <p className="canopy-stanford text-[12px] font-semibold uppercase leading-none">
+            <div className="canopy-event-badge mx-auto inline-flex items-stretch overflow-hidden">
+              <span className="canopy-event-kicker px-6 py-2.5 text-[14px] font-bold uppercase leading-none">
                 Current Event
-              </p>
+              </span>
+              <span className="px-6 py-2.5 text-[14px] font-bold uppercase leading-none">
+                2026 Update
+              </span>
             </div>
             <h1 className="canopy-copy canopy-copy-primary mt-4 text-[22px] font-semibold leading-[1.45]">
-              Stanford Robotics x Physical AI Founder-Investor Summit
+              <span className="canopy-stanford">Stanford Robotics</span> x Physical AI Founder-Investor Summit
             </h1>
             <p className="canopy-copy canopy-copy-secondary mx-auto mt-3 max-w-[520px] text-[15px] leading-[1.75]">
-              July 26, 2026 at Stanford Faculty Club.
+              July 26, 2026 at <span className="canopy-stanford">Stanford Faculty Club</span>.
             </p>
             <p className="canopy-copy canopy-copy-secondary mx-auto mt-3 max-w-[560px] text-[14px] leading-[1.75]">
               A closed-door founder-investor summit for robotics, Physical AI, and real-world intelligence.

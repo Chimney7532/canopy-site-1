@@ -8,9 +8,9 @@
   --canopy-ink: #000000;
   --canopy-ink-rgb: 0 0 0;
   --canopy-pupil: #f4f1ea;
-  --canopy-stanford: #8c1515;
-  --canopy-duration: 500ms;
-  --canopy-ease: ease-in-out;
+  --canopy-stanford: #b1040e;
+  --canopy-duration: 360ms;
+  --canopy-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @theme inline {
@@ -65,9 +65,14 @@ main {
   transition: none !important;
 }
 
+h1,
 p,
 a,
-footer {
+span,
+footer,
+.canopy-event-badge,
+.canopy-event-kicker,
+.canopy-page-shell {
   transition:
     background-color var(--canopy-duration) var(--canopy-ease),
     border-color var(--canopy-duration) var(--canopy-ease),
@@ -102,7 +107,7 @@ html.canopy-inverted body {
   --canopy-ink: #f4f1ea;
   --canopy-ink-rgb: 244 241 234;
   --canopy-pupil: #000000;
-  --canopy-stanford: #b83a4b;
+  --canopy-stanford: #b1040e;
   background: var(--canopy-surface) !important;
   background-color: var(--canopy-surface) !important;
   color: var(--canopy-ink) !important;
@@ -128,8 +133,13 @@ html.canopy-inverted .canopy-logo-button {
 
 html.canopy-inverted p,
 html.canopy-inverted a,
+html.canopy-inverted h1,
 html.canopy-inverted footer {
   color: var(--canopy-ink) !important;
+}
+
+html.canopy-inverted .canopy-stanford {
+  color: var(--canopy-stanford) !important;
 }
 
 html.canopy-inverted .canopy-cta {
@@ -157,7 +167,7 @@ html.canopy-inverted .canopy-cta:focus-visible {
 
 .canopy-stanford {
   color: var(--canopy-stanford);
-  transition: color var(--canopy-duration) var(--canopy-ease);
+  transition: color var(--canopy-duration) var(--canopy-ease) !important;
 }
 
 .canopy-footer {
@@ -210,6 +220,11 @@ html.canopy-inverted .canopy-interest-logo-img {
   color: var(--canopy-surface);
 }
 
+.canopy-option:hover span,
+.canopy-option:focus-visible span {
+  color: inherit !important;
+}
+
 .canopy-option-description {
   color: rgb(var(--canopy-ink-rgb) / 0.66);
   transition: color var(--canopy-duration) var(--canopy-ease) !important;
@@ -217,7 +232,7 @@ html.canopy-inverted .canopy-interest-logo-img {
 
 .canopy-option:hover .canopy-option-description,
 .canopy-option:focus-visible .canopy-option-description {
-  color: rgb(var(--canopy-surface-rgb) / 0.86);
+  color: rgb(var(--canopy-surface-rgb) / 0.86) !important;
 }
 
 .canopy-option-arrow {
@@ -241,6 +256,39 @@ html.canopy-inverted .canopy-interest-logo-img {
   transform: translateX(3px);
 }
 
+.canopy-event-badge {
+  border: 1px solid var(--canopy-ink);
+  color: var(--canopy-ink);
+}
+
+.canopy-event-kicker {
+  background: var(--canopy-stanford);
+  color: #f4f1ea;
+}
+
+html.canopy-inverted .canopy-event-kicker {
+  background: var(--canopy-stanford) !important;
+  color: #f4f1ea !important;
+}
+
+.canopy-back-link {
+  border: 1px solid transparent;
+  color: rgb(var(--canopy-ink-rgb) / 0.7);
+  text-decoration: none;
+  transition:
+    background-color var(--canopy-duration) var(--canopy-ease),
+    border-color var(--canopy-duration) var(--canopy-ease),
+    color var(--canopy-duration) var(--canopy-ease),
+    transform 220ms ease !important;
+}
+
+.canopy-back-link:hover,
+.canopy-back-link:focus-visible {
+  border-color: var(--canopy-ink);
+  color: var(--canopy-ink);
+  transform: translateX(-2px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -254,13 +302,17 @@ html.canopy-inverted .canopy-interest-logo-img {
 
   .canopy-cta,
   .canopy-cta-mark,
+  .canopy-back-link,
   .canopy-logo-mark,
+  .canopy-page-shell,
   html,
   body,
   main,
   section,
   .canopy-logo-shell,
   .canopy-logo-button,
+  h1,
+  span,
   p,
   a,
   footer {
