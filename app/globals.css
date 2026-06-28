@@ -16,8 +16,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-canopy-mono);
-  --font-mono: var(--font-canopy-mono);
+  --font-sans: var(--font-canopy-sans);
+  --font-serif: var(--font-canopy-serif);
 }
 
 html,
@@ -36,7 +36,7 @@ body {
 body {
   background: var(--canopy-surface) !important;
   color: var(--canopy-ink);
-  font-family: var(--font-canopy-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-family: var(--font-canopy-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-feature-settings: "kern" 1, "liga" 1;
   text-rendering: geometricPrecision;
 }
@@ -160,7 +160,8 @@ html.canopy-inverted .canopy-cta:focus-visible {
 }
 
 .canopy-copy {
-  font-weight: 430;
+  font-family: var(--font-canopy-serif), Georgia, serif;
+  font-weight: 500;
 }
 
 .canopy-copy-primary {
@@ -230,10 +231,162 @@ html.canopy-inverted .canopy-interest-logo-img {
   transform: translate(0, 0);
 }
 
+.canopy-cta,
+.canopy-control-button,
+.canopy-inline-action,
+.canopy-mode-tab,
+.canopy-back-link,
+.canopy-settings-action,
+.canopy-action-kicker,
+.canopy-action-button,
+.canopy-footer {
+  font-family: var(--font-canopy-sans), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.01em;
+}
+
 .canopy-option:hover,
 .canopy-option:focus-visible {
   background: var(--canopy-ink);
   color: var(--canopy-surface);
+}
+
+.canopy-apply-card {
+  background:
+    linear-gradient(135deg, rgb(var(--canopy-ink-rgb) / 0.065), rgb(var(--canopy-ink-rgb) / 0.018)),
+    var(--canopy-surface);
+  border: 1px solid rgb(var(--canopy-ink-rgb) / 0.46);
+  box-shadow:
+    0 1px 0 rgb(var(--canopy-ink-rgb) / 0.16),
+    0 22px 55px rgb(var(--canopy-ink-rgb) / 0.08);
+  color: var(--canopy-ink);
+  overflow: hidden;
+  position: relative;
+  transition:
+    background-color var(--canopy-duration) var(--canopy-ease),
+    border-color var(--canopy-duration) var(--canopy-ease),
+    box-shadow 220ms ease,
+    color var(--canopy-duration) var(--canopy-ease),
+    transform 220ms ease !important;
+}
+
+.canopy-apply-card::before {
+  background: var(--canopy-stanford);
+  content: "";
+  height: calc(100% - 28px);
+  left: 0;
+  position: absolute;
+  top: 14px;
+  width: 4px;
+}
+
+.canopy-apply-card::after {
+  border-left: 46px solid transparent;
+  border-top: 46px solid rgb(var(--canopy-ink-rgb) / 0.08);
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.canopy-apply-card:hover,
+.canopy-apply-card:focus-within {
+  background:
+    linear-gradient(135deg, rgb(var(--canopy-ink-rgb) / 0.08), rgb(var(--canopy-ink-rgb) / 0.03)),
+    var(--canopy-surface);
+  box-shadow:
+    0 1px 0 rgb(var(--canopy-ink-rgb) / 0.18),
+    0 28px 70px rgb(var(--canopy-ink-rgb) / 0.12);
+  transform: translateY(-2px);
+}
+
+.canopy-action-title,
+.canopy-interest-heading,
+.canopy-option > span:first-child {
+  font-family: var(--font-canopy-sans), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.015em;
+}
+
+.canopy-action-description,
+.canopy-option-description,
+.canopy-interest-summary {
+  font-family: var(--font-canopy-serif), Georgia, serif;
+}
+
+.canopy-action-kicker {
+  color: var(--canopy-stanford) !important;
+}
+
+.canopy-action-description {
+  color: rgb(var(--canopy-ink-rgb) / 0.68) !important;
+}
+
+.canopy-action-button {
+  background: var(--canopy-ink);
+  border: 1px solid var(--canopy-ink);
+  box-shadow: 4px 4px 0 rgb(var(--canopy-ink-rgb) / 0.18);
+  color: var(--canopy-surface) !important;
+  position: relative;
+  text-decoration: none;
+  transition:
+    background-color var(--canopy-duration) var(--canopy-ease),
+    border-color var(--canopy-duration) var(--canopy-ease),
+    box-shadow 180ms ease,
+    color var(--canopy-duration) var(--canopy-ease),
+    transform 180ms ease !important;
+  z-index: 2;
+}
+
+.canopy-apply-card .canopy-action-button,
+.canopy-apply-card span.canopy-action-button,
+.canopy-apply-card .canopy-action-button span {
+  color: var(--canopy-surface) !important;
+}
+
+.canopy-action-button:hover,
+.canopy-action-button:focus-visible {
+  box-shadow: 1px 1px 0 rgb(var(--canopy-ink-rgb) / 0.24);
+  transform: translate(3px, 3px);
+}
+
+html.canopy-inverted .canopy-apply-card {
+  background:
+    linear-gradient(135deg, rgb(var(--canopy-ink-rgb) / 0.07), rgb(var(--canopy-ink-rgb) / 0.025)),
+    var(--canopy-surface) !important;
+  border-color: var(--canopy-ink) !important;
+  color: var(--canopy-ink) !important;
+}
+
+html.canopy-inverted .canopy-apply-card:hover,
+html.canopy-inverted .canopy-apply-card:focus-visible {
+  background:
+    linear-gradient(135deg, rgb(var(--canopy-ink-rgb) / 0.1), rgb(var(--canopy-ink-rgb) / 0.04)),
+    var(--canopy-surface) !important;
+}
+
+html.canopy-inverted .canopy-action-kicker {
+  color: var(--canopy-stanford) !important;
+}
+
+html.canopy-inverted .canopy-action-description {
+  color: rgb(var(--canopy-ink-rgb) / 0.72) !important;
+}
+
+html.canopy-inverted .canopy-action-button,
+html.canopy-inverted .canopy-apply-card span.canopy-action-button,
+html.canopy-inverted .canopy-action-button span {
+  background: var(--canopy-ink) !important;
+  border-color: var(--canopy-ink) !important;
+  color: var(--canopy-surface) !important;
+}
+
+.canopy-apply-arrow {
+  transform: translateX(0);
+  transition: transform 220ms ease !important;
+}
+
+.canopy-apply-card:hover .canopy-apply-arrow,
+.canopy-apply-card:focus-visible .canopy-apply-arrow {
+  transform: translateX(8px);
 }
 
 .canopy-option:hover span,
@@ -274,7 +427,11 @@ html.canopy-inverted .canopy-interest-logo-img {
 }
 
 .canopy-event-badge {
-  border: 1px solid var(--canopy-ink);
+  background: rgb(var(--canopy-ink-rgb) / 0.04);
+  border: 1px solid rgb(var(--canopy-ink-rgb) / 0.48);
+  box-shadow:
+    inset 0 0 0 1px rgb(var(--canopy-surface-rgb) / 0.4),
+    0 10px 28px rgb(var(--canopy-ink-rgb) / 0.08);
   color: var(--canopy-ink);
   animation: canopyFadeUp 680ms var(--canopy-ease) 420ms backwards;
 }
@@ -295,16 +452,17 @@ html.canopy-inverted .canopy-event-kicker {
   color: var(--canopy-ink);
   cursor: pointer;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1;
   min-height: 38px;
-  padding: 0 20px;
+  padding: 0 18px;
   text-transform: uppercase;
-  width: 132px;
+  width: 138px;
 }
 
 .canopy-mode-tab.is-active {
   background: var(--canopy-stanford);
+  box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.22);
   color: #f4f1ea;
 }
 
@@ -321,9 +479,9 @@ html.canopy-inverted .canopy-event-kicker {
   cursor: pointer;
   display: inline-flex;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 800;
   justify-content: center;
-  letter-spacing: 0;
+  letter-spacing: 0.01em;
   line-height: 1;
   min-height: 34px;
   padding: 0 12px;
@@ -339,12 +497,18 @@ html.canopy-inverted .canopy-event-kicker {
 
 .canopy-site-controls {
   max-width: calc(100vw - 2.5rem);
-  filter: drop-shadow(4px 4px 0 rgb(var(--canopy-ink-rgb) / 0.18));
   isolation: isolate;
-  transform: translateZ(0);
+  box-shadow:
+    4px 4px 0 rgb(var(--canopy-ink-rgb) / 0.18),
+    0 18px 38px rgb(var(--canopy-ink-rgb) / 0.09);
+  transform: translate(-2px, -2px);
+  transition:
+    box-shadow 180ms ease,
+    transform 180ms ease !important;
 }
 
 .canopy-site-controls .canopy-control-button {
+  box-shadow: inset 0 -1px 0 rgb(var(--canopy-ink-rgb) / 0.18);
   width: 86px;
 }
 
@@ -355,11 +519,29 @@ html.canopy-inverted .canopy-event-kicker {
 .canopy-site-controls .canopy-control-button:hover,
 .canopy-site-controls .canopy-control-button:focus-visible {
   position: relative;
-  transform: translateY(-2px);
+  transform: translate(-1px, -2px);
   z-index: 2;
 }
 
 @media (max-width: 639px) {
+  .canopy-page-shell {
+    scroll-padding-top: 92px;
+    scroll-snap-type: y proximity;
+  }
+
+  .canopy-mobile-snap,
+  .canopy-action-card {
+    scroll-snap-align: start;
+  }
+
+  .canopy-apply-card {
+    min-height: 168px;
+  }
+
+  .canopy-secondary-grid {
+    gap: 0;
+  }
+
   .canopy-site-controls {
     right: 14px !important;
     top: 58px !important;
@@ -392,8 +574,40 @@ html.canopy-inverted .canopy-event-kicker {
 }
 
 .canopy-settings-popover {
-  box-shadow: 4px 4px 0 rgb(var(--canopy-ink-rgb) / 0.18);
+  box-shadow:
+    0 1px 0 rgb(var(--canopy-ink-rgb) / 0.18),
+    0 18px 40px rgb(var(--canopy-ink-rgb) / 0.1);
   color: var(--canopy-ink);
+}
+
+.canopy-settings-action {
+  align-items: center;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--canopy-ink);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-weight: 700;
+  justify-content: space-between;
+  min-height: 34px;
+  padding: 0 10px;
+  text-align: left;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    background-color var(--canopy-duration) var(--canopy-ease),
+    border-color var(--canopy-duration) var(--canopy-ease),
+    color var(--canopy-duration) var(--canopy-ease),
+    transform 180ms ease !important;
+}
+
+.canopy-settings-action:hover,
+.canopy-settings-action:focus-visible {
+  background: var(--canopy-ink);
+  border-color: var(--canopy-ink);
+  color: var(--canopy-surface);
+  transform: translateY(-1px);
 }
 
 .canopy-field {
@@ -433,12 +647,15 @@ html.canopy-inverted .canopy-event-kicker {
   animation: canopyTextReveal 520ms var(--canopy-ease) backwards;
 }
 
-.canopy-options-grid {
+.canopy-options-grid,
+.canopy-secondary-grid {
   position: relative;
 }
 
 .canopy-options-grid::before,
 .canopy-options-grid::after,
+.canopy-secondary-grid::before,
+.canopy-secondary-grid::after,
 .canopy-option::before,
 .canopy-option::after {
   background: var(--canopy-ink);
@@ -449,6 +666,8 @@ html.canopy-inverted .canopy-event-kicker {
 
 .canopy-options-grid::before,
 .canopy-options-grid::after,
+.canopy-secondary-grid::before,
+.canopy-secondary-grid::after,
 .canopy-option::before {
   height: 1px;
   left: 0;
@@ -461,8 +680,13 @@ html.canopy-inverted .canopy-event-kicker {
   top: 0;
 }
 
-.canopy-options-grid::after {
+.canopy-options-grid::after,
+.canopy-secondary-grid::after {
   bottom: 0;
+}
+
+.canopy-secondary-grid::before {
+  top: 0;
 }
 
 .canopy-option {
@@ -477,11 +701,14 @@ html.canopy-inverted .canopy-event-kicker {
 
 .canopy-options-grid::before,
 .canopy-options-grid::after,
+.canopy-secondary-grid::before,
+.canopy-secondary-grid::after,
 .canopy-option::before {
   animation: canopyLineReveal 360ms var(--canopy-ease) both;
 }
 
-.canopy-options-grid::before {
+.canopy-options-grid::before,
+.canopy-secondary-grid::before {
   animation-delay: 300ms;
 }
 
@@ -494,7 +721,8 @@ html.canopy-inverted .canopy-event-kicker {
 }
 
 .canopy-option:nth-child(3)::before,
-.canopy-options-grid::after {
+.canopy-options-grid::after,
+.canopy-secondary-grid::after {
   animation-delay: 480ms;
 }
 
@@ -512,6 +740,14 @@ html.canopy-inverted .canopy-event-kicker {
     width: 1px;
     animation: canopyVerticalLineReveal 360ms var(--canopy-ease) 420ms both;
   }
+}
+
+.canopy-secondary-grid .canopy-option:nth-child(1)::before {
+  animation-delay: 340ms;
+}
+
+.canopy-secondary-grid .canopy-option:nth-child(2)::before {
+  animation-delay: 400ms;
 }
 
 .canopy-back-link {
@@ -551,6 +787,10 @@ html.canopy-inverted .canopy-event-kicker {
 
 .canopy-option {
   animation: canopyOptionReveal 420ms var(--canopy-ease) both;
+}
+
+.canopy-apply-card {
+  animation: canopyOptionReveal 420ms var(--canopy-ease) 360ms both;
 }
 
 .canopy-option:nth-child(1) {
@@ -638,6 +878,192 @@ html.canopy-inverted .canopy-event-kicker {
   }
 }
 
+html:not(.canopy-inverted) .canopy-apply-card .canopy-action-button,
+html:not(.canopy-inverted) .canopy-apply-card .canopy-action-button span {
+  background: #000000 !important;
+  border-color: #000000 !important;
+  color: #f4f1ea !important;
+}
+
+html.canopy-inverted .canopy-apply-card .canopy-action-button,
+html.canopy-inverted .canopy-apply-card .canopy-action-button span {
+  background: #f4f1ea !important;
+  border-color: #f4f1ea !important;
+  color: #000000 !important;
+}
+
+.canopy-action-card {
+  animation: canopyPaperIn 560ms var(--canopy-ease) 520ms backwards;
+  background:
+    linear-gradient(135deg, rgb(var(--canopy-ink-rgb) / 0.055), rgb(var(--canopy-surface-rgb) / 0)),
+    var(--canopy-surface);
+  border: 1px solid rgb(var(--canopy-ink-rgb) / 0.72);
+  box-shadow:
+    5px 5px 0 rgb(var(--canopy-ink-rgb) / 0.16),
+    0 18px 44px rgb(var(--canopy-ink-rgb) / 0.06);
+  color: var(--canopy-ink);
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  transform: translate(-2px, -2px);
+  transition:
+    background-color var(--canopy-duration) var(--canopy-ease),
+    border-color var(--canopy-duration) var(--canopy-ease),
+    box-shadow 190ms ease,
+    color var(--canopy-duration) var(--canopy-ease),
+    transform 190ms ease !important;
+}
+
+.canopy-action-card::before {
+  background: var(--canopy-stanford);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: scaleY(0.28);
+  transform-origin: top;
+  transition: transform 220ms ease !important;
+  width: 4px;
+}
+
+.canopy-action-card:hover,
+.canopy-action-card:focus-visible,
+.canopy-action-card:focus-within {
+  box-shadow:
+    2px 2px 0 rgb(var(--canopy-ink-rgb) / 0.22),
+    0 12px 26px rgb(var(--canopy-ink-rgb) / 0.07);
+  transform: translate(0, 0);
+}
+
+.canopy-action-card:hover::before,
+.canopy-action-card:focus-visible::before,
+.canopy-action-card:focus-within::before {
+  transform: scaleY(1);
+}
+
+.canopy-action-primary {
+  animation-delay: 480ms;
+  min-height: 238px;
+  box-shadow:
+    7px 7px 0 rgb(var(--canopy-ink-rgb) / 0.2),
+    0 26px 58px rgb(var(--canopy-ink-rgb) / 0.09);
+}
+
+.canopy-action-secondary {
+  animation-delay: 620ms;
+  min-height: 148px;
+  box-shadow:
+    4px 4px 0 rgb(var(--canopy-ink-rgb) / 0.13),
+    0 14px 32px rgb(var(--canopy-ink-rgb) / 0.045);
+}
+
+.canopy-support-grid .canopy-action-secondary:nth-child(2) {
+  animation-delay: 700ms;
+}
+
+.canopy-action-primary::before {
+  transform: scaleY(1);
+  width: 5px;
+}
+
+.canopy-action-secondary-title,
+.canopy-action-title {
+  color: var(--canopy-ink);
+  font-family: var(--font-canopy-sans), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.015em;
+  transition: color var(--canopy-duration) var(--canopy-ease) !important;
+}
+
+.canopy-action-card .canopy-action-description {
+  color: rgb(var(--canopy-ink-rgb) / 0.66) !important;
+  font-family: var(--font-canopy-serif), Georgia, serif;
+}
+
+.canopy-action-card .canopy-action-button,
+.canopy-action-card .canopy-action-button span {
+  background: var(--canopy-ink) !important;
+  border-color: var(--canopy-ink) !important;
+  color: var(--canopy-surface) !important;
+}
+
+.canopy-action-card .canopy-action-kicker {
+  color: var(--canopy-stanford) !important;
+}
+
+.canopy-action-secondary:hover .canopy-option-arrow,
+.canopy-action-secondary:focus-visible .canopy-option-arrow {
+  transform: translateX(5px);
+}
+
+html.canopy-inverted .canopy-action-card {
+  background:
+    linear-gradient(135deg, rgb(var(--canopy-ink-rgb) / 0.06), rgb(var(--canopy-surface-rgb) / 0)),
+    var(--canopy-surface) !important;
+  border-color: rgb(var(--canopy-ink-rgb) / 0.78) !important;
+  color: var(--canopy-ink) !important;
+}
+
+html.canopy-inverted .canopy-action-secondary-title,
+html.canopy-inverted .canopy-action-title {
+  color: var(--canopy-ink) !important;
+}
+
+html.canopy-inverted .canopy-action-card .canopy-action-description {
+  color: rgb(var(--canopy-ink-rgb) / 0.72) !important;
+}
+
+html.canopy-inverted .canopy-action-card .canopy-action-button,
+html.canopy-inverted .canopy-action-card .canopy-action-button span {
+  background: var(--canopy-ink) !important;
+  border-color: var(--canopy-ink) !important;
+  color: var(--canopy-surface) !important;
+}
+
+.canopy-site-controls {
+  box-shadow:
+    4px 4px 0 rgb(var(--canopy-ink-rgb) / 0.22),
+    0 18px 38px rgb(var(--canopy-ink-rgb) / 0.1) !important;
+  transform: translate(-2px, -2px);
+}
+
+html.canopy-inverted .canopy-site-controls {
+  box-shadow:
+    4px 4px 0 rgb(var(--canopy-ink-rgb) / 0.2),
+    0 18px 38px rgb(var(--canopy-ink-rgb) / 0.08) !important;
+}
+
+.canopy-action-card::after,
+.canopy-apply-card::after {
+  background: none !important;
+  border: 0 !important;
+  content: none !important;
+  display: none !important;
+}
+
+@media (max-width: 639px) {
+  .canopy-action-primary,
+  .canopy-action-secondary {
+    min-height: 188px;
+  }
+}
+
+@keyframes canopyPaperIn {
+  0% {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+    transform: translate(-2px, 14px) scale(0.985);
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: translate(-2px, -2px) scale(1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -650,6 +1076,9 @@ html.canopy-inverted .canopy-event-kicker {
   }
 
   .canopy-cta,
+  .canopy-action-card,
+  .canopy-apply-card,
+  .canopy-apply-arrow,
   .canopy-cta-mark,
   .canopy-back-link,
   .canopy-event-badge,

@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono } from "next/font/google";
+import { Instrument_Sans, Newsreader } from "next/font/google";
 import "./globals.css";
 
-const canopyMono = IBM_Plex_Mono({
-  variable: "--font-canopy-mono",
+const canopySans = Instrument_Sans({
+  variable: "--font-canopy-sans",
+  subsets: ["latin"],
+});
+
+const canopySerif = Newsreader({
+  variable: "--font-canopy-serif",
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 });
@@ -21,9 +26,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${canopyMono.variable} h-full bg-[#f4f1ea] antialiased`}
+      className={`${canopySans.variable} ${canopySerif.variable} h-full bg-[#f4f1ea] antialiased`}
     >
-      <body className={`${canopyMono.className} flex min-h-full flex-col overflow-hidden bg-[#f4f1ea]`}>
+      <body className={`${canopySans.className} flex min-h-full flex-col overflow-hidden bg-[#f4f1ea]`}>
         {children}
       </body>
     </html>
