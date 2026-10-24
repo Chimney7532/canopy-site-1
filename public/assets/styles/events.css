@@ -1,0 +1,152 @@
+.event-list{padding-bottom:10px}
+.event-admin{display:flex;justify-content:flex-end;min-height:0}
+.event-admin:empty{display:none}.event-admin button{padding:8px 0;font-size:12px}
+.event-month{font:400 16px/1.4 Grotesk,sans-serif!important;letter-spacing:-.02em!important;margin:20px 0 8px!important;color:#171715}
+.event-month:not(:first-child){margin-top:45px!important}.event-month span{font-size:11px;color:#77766e;margin-left:14px}
+.event-entry{display:block;position:relative;isolation:isolate;overflow:hidden;width:calc(100% + 48px);margin:0 -24px 8px;color:#171715;text-decoration:none;background:#f4f1ea;outline-offset:4px}
+.event-typesetting{position:relative;display:grid;grid-template-columns:108px minmax(0,1fr) 24px;align-items:center;gap:25px;padding:30px 24px 38px;min-height:186px}
+.event-date strong{display:block;font:500 76px/.95 Grotesk,sans-serif;letter-spacing:-.075em;margin-bottom:23px}
+.event-date span{display:block;font:400 9px/1.4 Grotesk,sans-serif;text-transform:uppercase;letter-spacing:.02em;color:#77766e}
+.event-copy h3{font:600 clamp(23px,2.8vw,38px)/1.12 Grotesk,sans-serif;letter-spacing:-.045em;margin:0;max-width:26ch;overflow-wrap:anywhere}
+.event-copy p{font:400 14px/1.55 Grotesk,sans-serif;color:#77766e;max-width:44ch;margin:15px 0 0;overflow-wrap:anywhere}
+.event-action{font:400 25px/1 Grotesk,sans-serif;opacity:0;transform:translate(-4px,4px);transition:opacity .25s,transform .35s cubic-bezier(.22,1,.36,1)}
+.event-entry.has-link:hover .event-action,.event-entry.has-link:focus-visible .event-action{opacity:1;transform:none}
+.event-entry:focus,.event-entry:focus-visible{outline:none}
+.event-entry:focus-visible:not([data-event-pointer-return]) h3{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em}
+.event-reveal{position:absolute;inset:0;pointer-events:none;clip-path:inset(0 100% 0 0);visibility:hidden;background:#171715;color:#f4f1ea}
+.reveal-ready .event-reveal{visibility:visible}
+.event-reveal img,.event-image-shade{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.event-image-shade{background:linear-gradient(95deg,rgba(0,0,0,.68),rgba(0,0,0,.42))}
+.event-reveal .event-date span,.event-reveal .event-copy p{color:#e2dfd6}
+.event-reveal .event-typesetting{height:100%}
+.event-featured .event-typesetting{min-height:280px;grid-template-columns:minmax(120px,25%) minmax(0,1fr) 24px;gap:35px}
+.event-featured .event-date strong{font-size:clamp(100px,12vw,170px)}
+.event-featured .event-copy h3{font-size:clamp(32px,4vw,58px);max-width:15ch}
+.event-empty{padding:35px 0 55px;color:#77766e}.event-empty p{margin-bottom:12px}.event-empty button,.event-empty a{color:#171715;padding:0}
+@media(hover:none),(pointer:coarse){.event-action{opacity:1;transform:none}.event-image-shade{background:rgba(0,0,0,.65)}}
+@media(prefers-reduced-motion:reduce){.event-action{transition:none}}
+@media(max-width:600px){.event-entry{width:100%;margin:0 0 12px}.event-typesetting{grid-template-columns:56px minmax(0,1fr) 16px;gap:15px;padding:25px 14px;min-height:165px}.event-date strong{font-size:48px;margin-bottom:17px}.event-date span{font-size:8px}.event-copy h3{font-size:23px}.event-copy p{font-size:12px;margin-top:10px}.event-action{font-size:20px}.event-month{padding:0 14px;font-size:14px!important}.event-month span{font-size:10px}.event-featured .event-typesetting{grid-template-columns:70px minmax(0,1fr) 16px;gap:18px;min-height:220px}.event-featured .event-date strong{font-size:72px}.event-featured .event-copy h3{font-size:28px}}
+#event-manager{border:0;border-radius:2px;width:min(760px,calc(100vw - 32px));max-width:760px;max-height:calc(100svh - 32px);padding:36px;background:#f4f1ea;color:#171715;box-shadow:0 24px 100px #0003;overflow:auto;color-scheme:light}
+#event-manager::backdrop{background:#17171570;backdrop-filter:blur(5px)}
+#event-manager h2{font:500 36px/1.1 Grotesk,sans-serif;letter-spacing:-.05em;margin:0 0 24px}#event-manager h2:focus{outline:none}
+#event-manager .event-manager-close{position:absolute;top:10px;right:12px;font:400 26px/1 Grotesk,sans-serif;padding:6px}
+.event-manager-toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.event-manager-toolbar>span{font-size:12px;color:#77766e}
+.event-manager-list>button{display:flex;justify-content:space-between;align-items:center;gap:20px;width:100%;padding:18px 0;text-align:left;border-bottom:1px solid #dedbd2;font-size:12px}
+.event-manager-list strong{display:block;font-size:17px;font-weight:500}.event-manager-list small{display:block;color:#77766e;margin-top:4px}.event-manager-list>button>span:last-child{color:#77766e;white-space:nowrap;text-transform:capitalize}
+#event-manager label{display:block;font-size:13px;margin:0 0 18px}#event-manager label>span{color:#77766e;font-size:11px;margin-left:6px}
+#event-manager input:not([type=range]),#event-manager textarea{display:block;width:100%;font:400 15px/1.5 Grotesk,sans-serif;background:#e9e6de;color:#171715;border:0;border-radius:0;padding:12px;margin-top:7px}#event-manager textarea{resize:vertical}
+.event-fields{display:grid;grid-template-columns:170px minmax(0,1fr);gap:20px}.event-editor-back{padding:0;margin:0 0 24px;font-size:12px}
+.event-editor-actions{display:flex;align-items:center;gap:22px;margin-top:26px}.event-editor-actions .button{margin-left:auto}
+.event-form-error,.event-image-error{font-size:13px;color:#a12b32;line-height:1.5}.event-form-error:empty{display:none}
+.event-image-editor img{display:block;width:100%;height:160px;object-fit:cover;background:#e9e6de}.event-image-controls{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:14px}#event-manager input[type=range]{display:block;width:100%;accent-color:#171715}
+#event-manager button:disabled{opacity:.5;cursor:wait}
+@media(max-width:600px){#event-manager{padding:28px 22px}.event-fields{grid-template-columns:1fr;gap:0}.event-manager-list>button{align-items:flex-start;gap:10px}.event-editor-actions{gap:12px;flex-wrap:wrap}.event-image-controls{gap:12px}}
+/* Home retains its original two-column date poster and smaller second event. */
+.event-entry.event-home-feature,.event-entry.event-home-next{width:100%;margin:0;background:transparent}
+.event-entry.event-home-feature{margin-bottom:30px}
+.event-home-feature .gathering-feature{padding-bottom:0;margin:0}
+.event-home-feature .gathering-copy h3{width:100%;max-width:none;font-size:clamp(28px,8cqw,62px);line-height:1.06;overflow-wrap:break-word;text-wrap:balance}
+.event-home-feature .event-reveal .gathering-date{background:transparent}
+.event-home-feature .event-reveal .gathering-copy p,.event-home-next .event-reveal p,.event-home-next .event-reveal small{color:#e2dfd6}
+.event-home-feature .event-reveal .gathering-feature{height:100%}
+.event-home-next .gathering-next{margin:0;padding:30px 32px}
+/* Home photograph remains confined to the invitation beside the date poster. */
+.event-reveal>.gathering-feature,.event-reveal>.gathering-next{position:relative}
+.event-home-window{position:relative;overflow:hidden;min-width:0;container-type:inline-size}
+.event-home-window>.gathering-copy,.event-home-window .event-reveal>.gathering-copy{position:relative;height:100%;padding:32px clamp(28px,5vw,76px)}
+.event-home-window .event-reveal{inset:0}
+.event-home-window .event-reveal p{color:#e2dfd6}
+.event-home-feature .gathering-feature{grid-template-columns:42% minmax(0,1fr);gap:0}
+.event-home-window .gathering-copy>:last-child{margin-bottom:0}
+@media(max-width:600px){
+ .event-entry.event-home-feature{margin-bottom:24px}
+ .event-home-next .gathering-next{padding:24px 20px}
+ .event-home-window>.gathering-copy,.event-home-window .event-reveal>.gathering-copy{padding:20px 18px}
+ .event-home-feature .gathering-date>strong{font-size:clamp(68px,23vw,90px)}
+}
+/* One calendar agenda: month, day, event. */
+body.events-page{height:100svh;overflow:hidden}
+body.events-page>.shell[data-view="events"]{height:100%;display:flex;flex-direction:column;padding-bottom:0;min-height:0}
+#shell[data-view="events"]>#main{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;display:block;padding-top:0;overscroll-behavior-y:contain;overflow-anchor:none;scrollbar-width:thin;scrollbar-color:#c9c3b6 transparent;scroll-padding-top:var(--agenda-sticky-height,200px)}
+.shell[data-view="events"] main>.view,.route-ghost[data-view="events"]>.view{min-height:100%;display:block}
+.shell[data-view="events"] .page-intro,.route-ghost[data-view="events"] .page-intro{min-height:0;position:sticky;top:0;z-index:3;background:var(--paper);padding:48px 0 18px}
+.shell[data-view="events"]>footer{display:none}
+.shell[data-view="events"] [data-event-list="all"]{display:block;padding-bottom:0}
+.event-program{position:relative;min-height:0;overflow:visible;padding:0 10px 32px 0}
+.event-program:after{content:'';display:block;height:var(--agenda-end-space,0px)}
+.agenda-month{position:relative;margin:0 0 60px}
+.agenda-month-header{position:sticky;top:var(--agenda-header-height,150px);z-index:2;background:var(--paper);display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0 26px}
+.agenda-month-header h2{font:500 clamp(32px,3.8vw,54px)/1.1 Grotesk,sans-serif;letter-spacing:-.05em;margin:0;white-space:nowrap}
+.agenda-month-header h2:focus{outline:none}
+.agenda-month-header h2 span{color:#77766e}
+.agenda-month-controls{display:flex;align-items:center;gap:8px;flex:none}
+.agenda-month-controls button{min-width:44px;min-height:44px;padding:8px;font:400 25px/1 Grotesk,sans-serif;color:var(--ink)}
+.agenda-month-controls button:disabled{opacity:.25;cursor:default}
+.agenda-month-controls .agenda-today{font-size:13px;letter-spacing:0;margin-right:12px;padding:8px 0}
+.agenda-month-controls .agenda-today:disabled{opacity:1;color:#77766e}
+.agenda-month-controls button:focus-visible{outline:1px solid var(--ink);outline-offset:2px}
+.agenda-month-events{min-width:0}
+.agenda-month-empty{padding:36px 0 80px;color:#77766e;font-size:18px}
+.agenda-row{position:relative}
+.agenda-row+.agenda-row{margin-top:10px}
+:is(.event-program,[data-event-list="home"]) .event-entry{width:100%;margin:0;background:transparent}
+:is(.event-program,[data-event-list="home"]) .event-typesetting{grid-template-columns:120px minmax(0,1fr) 24px;gap:48px;min-height:200px;padding:30px 28px;align-items:center}
+:is(.event-program,[data-event-list="home"]) .event-date strong{font:600 96px/.82 Grotesk,sans-serif;letter-spacing:-.08em;margin:0 0 15px}
+:is(.event-program,[data-event-list="home"]) .event-date span{font-size:11px;letter-spacing:.04em;text-transform:uppercase}
+:is(.event-program,[data-event-list="home"]) .event-copy h3{font:500 clamp(30px,3.3vw,48px)/1.08 Grotesk,sans-serif;letter-spacing:-.045em;max-width:none}
+:is(.event-program,[data-event-list="home"]) .event-copy p{font-size:14px;line-height:1.45;margin:14px 0 0;max-width:44ch}
+:is(.event-program,[data-event-list="home"]) .event-copy small{display:block;font-size:10px;font-weight:400;color:#77766e;margin-top:9px}
+:is(.event-program,[data-event-list="home"]) .event-reveal .event-copy small{color:#e2dfd6}
+:is(.event-program,[data-event-list="home"]) .event-action{font-size:25px;opacity:1;transform:none;grid-column:-2}
+@media(max-width:1100px){
+ :is(.event-program,[data-event-list="home"]) .event-typesetting{grid-template-columns:92px minmax(0,1fr) 22px;gap:38px;min-height:180px;padding:28px 20px}
+ :is(.event-program,[data-event-list="home"]) .event-date strong{font-size:80px}
+ :is(.event-program,[data-event-list="home"]) .event-copy h3{font-size:32px}
+ .agenda-month-header{gap:12px}
+ .agenda-month-controls{gap:0}
+ .agenda-month-controls .agenda-today{margin-right:6px}
+}
+@media(max-width:760px){
+ .agenda-month-header{align-items:flex-start;flex-wrap:wrap;gap:4px;padding:18px 0 20px}
+ .agenda-month-header h2{font-size:35px;flex:1 1 100%}
+ .agenda-month-controls{width:100%;justify-content:flex-end}
+ .agenda-month-controls .agenda-today{margin-right:auto}
+ .event-program{padding-right:0}
+ .agenda-month{margin-bottom:40px}
+ :is(.event-program,[data-event-list="home"]) .event-typesetting{grid-template-columns:62px minmax(0,1fr) 18px;gap:30px;min-height:165px;padding:24px 18px}
+ :is(.event-program,[data-event-list="home"]) .event-date strong{font-size:64px}
+ :is(.event-program,[data-event-list="home"]) .event-copy h3{font-size:27px}
+ :is(.event-program,[data-event-list="home"]) .event-copy p{font-size:13px;margin-top:10px}
+ :is(.event-program,[data-event-list="home"]) .event-action{font-size:22px}
+}
+@media(max-width:600px){
+ body.events-page{display:flex;flex-direction:column}
+ body.events-page>.rail{flex:none}
+ body.events-page>.shell[data-view="events"]{flex:1;min-height:0;height:auto}
+ .shell[data-view="events"] .page-intro,.route-ghost[data-view="events"] .page-intro{padding:24px 0 12px}
+}
+@media(max-height:600px) and (min-width:601px){
+ .shell[data-view="events"] .page-intro{padding-bottom:12px}
+}
+
+.event-page-editor{margin:28px 0}.event-page-editor summary{font-size:17px;cursor:pointer;margin-bottom:22px}.event-page-editor select{display:block;background:#e9e6de;border:0;border-radius:0;font:400 14px Grotesk,sans-serif;padding:12px;margin-top:7px;width:100%;color:#171715}
+.event-detail-block{border:0;margin:18px 0;padding:20px;background:#ebe8e0}.event-block-toolbar{display:flex;gap:12px;align-items:center;margin-bottom:18px}.event-block-toolbar select{flex:1;margin:0;background:#f4f1ea}.event-block-toolbar button{font-size:20px;padding:6px}.event-detail-block label:last-child{margin-bottom:0!important}.event-add-section{font-size:14px;padding:8px 0}
+
+/* The lead invitation is a photograph at rest, not a hover reveal. */
+.event-static .event-reveal{clip-path:none;visibility:visible}
+.event-static .event-action{opacity:1;transform:none}
+[data-event-list="home"] .agenda-entry{width:100%;margin:0;background:transparent}
+
+[data-event-list="home"] .event-home-feature{margin-bottom:24px}
+
+/* The second home activity remains a compact agenda strip. */
+[data-event-list="home"] .event-home-next .event-typesetting{min-height:132px;padding:24px 28px;grid-template-columns:88px minmax(0,1fr) 24px;gap:32px}
+[data-event-list="home"] .event-home-next .event-date strong{font-size:72px}
+[data-event-list="home"] .event-home-next .event-copy h3{font-size:clamp(22px,2.3vw,32px)}
+[data-event-list="home"] .event-home-next .event-copy p{margin-top:8px;font-size:14px}
+@media(max-width:600px){
+ [data-event-list="home"] .event-home-next .event-typesetting{padding:22px 18px;grid-template-columns:54px minmax(0,1fr) 18px;gap:20px}
+ [data-event-list="home"] .event-home-next .event-date strong{font-size:56px}
+ [data-event-list="home"] .event-home-next .event-copy h3{font-size:22px}
+ [data-event-list="home"] .event-home-next .event-copy p{font-size:13px}
+}

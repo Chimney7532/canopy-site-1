@@ -1,0 +1,57 @@
+/* Home shares the project covers' type, spacing and quiet surfaces. */
+.home-story-mode{--home-inset:clamp(24px,3vw,40px)}
+.home-story-mode .hero .chapter-head.first{height:calc(var(--cap) + 32px)}
+.home-story-mode .invitation .invitation-image{height:clamp(260px,25vw,360px)}
+.home-story-mode .invitation-intro h2{font-weight:600;font-size:clamp(28px,2.9vw,42px);letter-spacing:-.055em;padding-right:var(--home-inset)}
+.home-story-mode .invitation-intro .invitation-description{width:100%;max-width:none;padding-top:20px;font-size:clamp(19px,1.7vw,26px);line-height:1.4;text-wrap:pretty}
+.home-story-mode .hero{padding-bottom:88px!important}
+.home-story-mode .home-chapter{padding-bottom:88px!important}
+.home-story-mode .chapter-head{height:calc(var(--cap) + 32px)}
+.home-story-mode .chapter-meta{padding-bottom:24px}
+.home-story-mode .chapter-meta .text-link{font-size:14px;letter-spacing:-.02em}
+.home-story-mode .gathering-date{padding:var(--home-inset)}
+.home-story-mode .event-home-window>.gathering-copy,
+.home-story-mode .event-home-window .event-reveal>.gathering-copy{padding:var(--home-inset)}
+.home-story-mode .gathering-copy h3{font-weight:500;letter-spacing:-.065em}
+.home-story-mode .gathering-copy p{font-size:16px;line-height:1.45;max-width:27ch}
+.home-story-mode .event-home-next .gathering-next{padding:28px var(--home-inset);border:0}
+.home-story-mode .event-home-next .gathering-next h3{font-size:clamp(20px,2.1vw,28px);font-weight:500;letter-spacing:-.04em}
+.home-story-mode .event-home-next .gathering-next p{font-size:14px;line-height:1.45}
+.home-story-mode .project-reel{padding-bottom:0}
+.home-story-mode .project-focus-cover{padding:var(--home-inset)}
+/* A chapter stop must leave the covers AND their captions in the viewport. */
+.home-story-mode .home-build{height:min(calc(100svh - 30px),calc(var(--cap) + 540px));min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr);padding-bottom:24px!important}
+.home-story-mode .home-build .chapter-content{display:grid;grid-template-rows:auto minmax(0,1fr);min-height:0;min-width:0}
+.home-story-mode .home-build .project-reel{height:100%;min-height:0}
+.home-story-mode .home-build .project-slide{height:100%;min-height:0;display:grid;grid-template-rows:minmax(0,1fr) auto}
+.home-story-mode .home-build .project-focus-cover{height:100%;min-height:0;aspect-ratio:auto;container-type:size;padding:min(var(--home-inset),4svh)}
+.home-story-mode .home-build .project-focus-cover h2{font-size:min(clamp(68px,8.6vw,132px),40cqh)}
+@media(max-width:600px){
+ .home-story-mode .home-chapter.home-build{height:min(calc(100svh - 20px),calc(var(--cap) + 440px));padding-bottom:24px!important}
+ .home-story-mode .home-build .project-focus-cover h2{font-size:min(clamp(58px,18vw,86px),40cqh)}
+}
+.home-story-mode .home-read{min-height:0}
+.home-story-mode .home-read .forum-home{padding-top:0;gap:28px;grid-template-columns:1fr 1fr}
+.home-story-mode .home-read .forum-home h3{font:500 clamp(32px,4vw,56px)/1.06 Grotesk,Arial,sans-serif;letter-spacing:-.055em;max-width:13ch;margin-bottom:28px}
+.home-story-mode .home-read .forum-home-notes{padding:var(--home-inset);background:#e3e2db}
+.home-story-mode .home-read .forum-home h4{font-size:clamp(26px,3vw,40px);font-weight:500;letter-spacing:-.05em}
+@media(max-width:600px){
+ .home-story-mode .invitation .invitation-image{height:250px}
+ .home-story-mode .invitation-intro .invitation-description{font-size:17px;line-height:1.5;padding-top:18px}
+ .home-story-mode .invitation-intro h2{font-size:clamp(25px,7.2vw,36px);padding-right:22px}
+ .home-story-mode .hero,.home-story-mode .home-chapter{padding-bottom:64px!important}
+ .home-story-mode .chapter-meta{padding-bottom:20px}
+ .home-story-mode .gathering-date{padding:20px}
+ .home-story-mode .event-home-window>.gathering-copy,
+ .home-story-mode .event-home-window .event-reveal>.gathering-copy{padding:20px 18px}
+ .home-story-mode .gathering-copy p{font-size:14px}
+ .home-story-mode .event-home-next .gathering-next{padding:24px 20px}
+ .home-story-mode .event-home-next .gathering-next h3{font-size:19px}
+ .home-story-mode .event-home-next .gathering-next p{font-size:13px}
+ .home-story-mode .home-read .forum-home{grid-template-columns:1fr;gap:28px}
+ .home-story-mode .home-read .forum-home h3{font-size:34px}
+}
+
+/* Leave enough room for the final title to meet CAN at the same baseline. */
+.home-story-mode .home-read{min-height:calc(100svh - 30px)}
+@media(max-width:600px){.home-story-mode .home-read{min-height:calc(100svh - 20px)}}

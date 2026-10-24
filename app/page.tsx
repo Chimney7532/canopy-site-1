@@ -1,5 +1,4 @@
-import { CanopyHero } from "@/components/CanopyHero";
-
-export default function Home() {
-  return <CanopyHero />;
+import CanopyApp from "@/components/canopy-app";
+export default function Page() {
+  return <CanopyApp />;
 }

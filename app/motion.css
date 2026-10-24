@@ -1,0 +1,46 @@
+:root { --motion-ease: cubic-bezier(.22, 1, .36, 1); }
+
+.canopy-nav-link { gap: 8px; }
+.canopy-nav-link .nav-marker {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translate(-5px, 5px);
+  transition: opacity 160ms ease, transform 360ms var(--motion-ease);
+}
+.canopy-nav-link .nav-arrow {
+  position: absolute;
+  inset: 0;
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 560ms var(--motion-ease);
+}
+.canopy-nav-link .nav-arrow-next { transform: translate(-115%, 115%); }
+.canopy-nav-link[data-active="true"] .nav-marker,
+.canopy-nav-link:focus-visible .nav-marker { opacity: 1; transform: translate(0, 0); }
+.canopy-nav-link:focus-visible .nav-arrow-current { transform: translate(115%, -115%); }
+.canopy-nav-link:focus-visible .nav-arrow-next { transform: translate(0, 0); }
+.canopy-nav-link:focus-visible { outline: 1px solid var(--red); outline-offset: 4px; }
+@media (hover: hover) and (pointer: fine) {
+  .canopy-nav-link:hover .nav-marker { opacity: 1; transform: translate(0, 0); }
+  .canopy-nav-link:hover .nav-arrow-current { transform: translate(115%, -115%); }
+  .canopy-nav-link:hover .nav-arrow-next { transform: translate(0, 0); }
+}
+
+/* The outgoing copy is visual only; navigation remains usable throughout. */
+.page-departure { background: transparent; position: fixed; inset: 0; z-index: 30; overflow: hidden; pointer-events: none; }
+.page-departure > .public-story, .page-departure > .quiet-edition { background: var(--paper); }
+.page-arrival { position: relative; z-index: 31; background: var(--paper); }
+#main-content:focus { outline: none; }
+@media (prefers-reduced-motion: reduce) {
+  .canopy-nav-link .nav-marker, .canopy-nav-link .nav-arrow { transition: none !important; animation: none !important; }
+  .publication *, .publication *::after { animation: none !important; transition: none !important; }
+}
