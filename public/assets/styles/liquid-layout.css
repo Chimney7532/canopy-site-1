@@ -1,0 +1,134 @@
+/* A quiet ink margin for public pages; the same surface fills Room. */
+@media(min-width:901px){
+ :root{--rail:clamp(180px,15vw,218px)}
+ body>.rail{padding-left:24px;padding-right:26px}
+}
+
+#liquid-rail{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;contain:strict}
+#liquid-rail svg{display:block;width:100%;height:100%}
+#liquid-rail.travelling{z-index:110}
+.shell{position:relative;z-index:1}
+body>.rail{background:transparent;border:0;color:#f4f1ea}
+.rail .rail-label,.rail .primary-nav a,.rail .rail-join{color:#f4f1ea}
+.rail .rail-secondary,.rail .rail-bottom,.rail .rail-bottom button,.rail .nav-forum{color:#b9b7ad}
+.rail .brand{color:#f4f1ea}
+.rail .brand svg path:last-child{fill:#171715}
+.rail a:focus-visible,.rail button:focus-visible{outline-color:#f4f1ea}
+body:not(.in-room) .masthead{background:transparent;border-bottom:0}
+.can-anchor:before{left:-8px}
+body.ink-travelling>.rail,body.ink-travelling #room-rail{z-index:111}
+body.ink-leaving .shell,body.ink-reveal .shell{z-index:111}
+
+/* In Room, ink is the ground and warm paper becomes the foreground. */
+body.in-room{--paper:#171715;--ink:#f4f1ea;--red:#f4f1ea;--mute:#aaa99e;--line:#41413a;--room-surface:#22221f;--room-raised:#2c2c27;background:#171715;color:#f4f1ea;color-scheme:dark}
+.in-room #room-rail{background:transparent;color:#f4f1ea}
+.in-room #room-rail a[aria-current="page"]{background:#f4f1ea;color:#171715}
+.in-room #room-rail a:focus-visible{outline-color:#f4f1ea}
+.in-room .room-brand-eyes{color:#f4f1ea}
+.in-room .masthead{background:transparent}
+.in-room .forum-detail,.in-room .room-inbox,.in-room .room-notifications,.in-room .room-profile,.in-room .room-admin>section,.in-room .room-people article{background:var(--room-surface)}
+.in-room .forum-browse,.in-room .forum-detail-top>span,.in-room .forum-replies,.in-room .room-inbox>aside,.in-room .room-project-work,.in-room .room-stage,.in-room .room-callout,.in-room .room-update-banner,.in-room .forum-reply blockquote{background:var(--room-raised)}
+.in-room .forum-search{background:transparent}
+.in-room .forum-form input,.in-room .forum-form textarea,.in-room .forum-form select{background:#34342e;color:#f4f1ea}
+.in-room input::placeholder,.in-room textarea::placeholder{color:#aeada2;opacity:1}
+.in-room .room-reply-form textarea{background:#171715}
+.in-room .forum-initial,.in-room .room-people .forum-initial,.in-room .forum-faces>span{background:#44443b;color:#f4f1ea}
+.in-room .forum-faces>span:nth-child(2){background:#55554b}.in-room .forum-faces>span:nth-child(3){background:#35352f}
+.in-room .room-menu-panel{background:#30302a;border-color:#48483f;box-shadow:0 12px 35px #0005}
+.in-room .room-menu-panel a:hover,.in-room .room-menu-panel button:hover,.in-room .room-menu-panel a:focus-visible,.in-room .room-menu-panel button:focus-visible{background:#44443a}
+.in-room .forum-quick-poll,.in-room .forum-invitation{background:#292924;color:#f4f1ea}
+.in-room .forum-invitation button,.in-room .forum-quick-poll .forum-poll button{color:#f4f1ea}
+.in-room .forum-poll button{background:#34342d;color:#f4f1ea}
+.in-room .forum-poll-fill,.in-room .forum-quick-poll .forum-poll-fill{background:#555548}
+.in-room .forum-quick-poll .forum-poll button[aria-pressed=true]{box-shadow:inset 3px 0 #f4f1ea}
+.in-room .room-messages article{background:#34342d;color:#f4f1ea}
+.in-room .room-messages article.outgoing{background:#dedbd0;color:#171715}
+.in-room .room-inbox aside a.active{background:#dedbd0;color:#171715}
+.in-room dialog{background:#22221f;border-color:#48483f;color:#f4f1ea}
+.in-room dialog::backdrop{background:#0009}
+.in-room footer{border-color:#34342d}
+@media(max-width:600px){
+ body>.rail{padding-bottom:6px}
+ .in-room #room-rail{padding-bottom:14px}
+}
+
+.in-room input[type="checkbox"],.in-room input[type="radio"]{accent-color:#dedbd0}
+
+/* Ink belongs to the navigation, not to a full-height panel. */
+@media(min-width:601px){
+ body>.rail{padding:23px 24px;color:#171715}
+ .rail .rail-label{color:#171715}
+ .rail .primary-nav{margin-top:30px}
+ .rail .primary-nav a{font-size:22px;font-weight:600;letter-spacing:-.045em;color:#171715;padding:13px 0}
+ .rail .primary-nav a.active,.rail .primary-nav a:hover,.rail .primary-nav a:focus-visible{color:#171715}
+ .rail .primary-nav a .arrow{font-size:21px;width:23px;height:26px}
+ .rail .primary-nav a[data-route="members"]{margin-top:23px;justify-content:flex-start;gap:12px;color:#f4f1ea}
+ .rail .primary-nav a[data-route="members"] .arrow{margin-left:auto}
+ .rail .nav-forum{font-size:9px;font-weight:400;letter-spacing:.02em;color:#b9b7ad}
+ .rail .rail-secondary{margin-top:52px;font-size:12px;color:#72716a}
+ .rail .rail-join{margin-top:20px;font-size:13px;font-weight:500;color:#171715}
+ .rail .rail-join span{font-size:17px}
+ .rail .rail-bottom{gap:14px;letter-spacing:.025em;color:#72716a}
+ .rail .rail-bottom .brand{width:110px;max-width:100%;color:#171715;margin-bottom:3px}
+ .rail .rail-bottom .brand svg path:last-child{fill:#f4f1ea}
+ .rail .rail-bottom button{color:#72716a}
+ .rail a:focus-visible,.rail button:focus-visible{outline-color:currentColor}
+}
+@media(min-width:601px) and (max-height:680px){
+ .rail .primary-nav a{padding:10px 0}
+ .rail .primary-nav a[data-route="members"]{margin-top:14px}
+ .rail .rail-secondary{margin-top:65px}
+ .rail .rail-bottom .brand{display:none}
+ .rail .rail-bottom{gap:9px}
+}
+
+@media(min-width:601px) and (max-width:900px){:root{--gutter:40px}}
+
+.rail .primary-nav a[data-route="members"],.rail .primary-nav a[data-route="members"]:hover,.rail .primary-nav a[data-route="members"]:focus-visible{color:#f4f1ea}
+@media(max-width:600px){
+ .rail .rail-label,.rail .primary-nav a{color:#171715}
+ .rail .primary-nav{padding-bottom:7px}
+}
+
+/* A frozen outgoing view peels away to the already-rendered live destination. */
+.ink-scene{position:fixed;inset:0;z-index:150;overflow:hidden;pointer-events:none;isolation:isolate;contain:paint;will-change:clip-path}
+.ink-clip-defs{position:fixed;width:0;height:0;pointer-events:none}
+
+body.ink-live-flow{overflow-anchor:none}
+
+/* Temporary Room landing: a single message on the same ink surface. */
+body.room-preview .shell{margin:0;max-width:none;width:100%;padding:0}
+.room-preview .masthead,.room-preview .shell>footer{display:none}
+.room-preview #main{padding:0;min-height:100svh}
+.room-preview #main>.view{animation:none}
+.room-coming-soon{min-height:100svh;padding:30px clamp(24px,5vw,80px);display:grid;grid-template-rows:auto 1fr;color:#f4f1ea}
+.room-soon-header{display:flex;align-items:center;justify-content:space-between;gap:24px;font-size:13px}
+.room-soon-header>span{font-size:20px;font-weight:600;letter-spacing:-.045em}
+.room-soon-return{display:inline-flex;align-items:center;gap:12px;min-height:44px}
+.room-soon-return span{display:inline-block;transition:transform .45s cubic-bezier(.22,1,.36,1)}
+.room-soon-return:hover span{transform:translateX(-5px)}
+.room-soon-message{align-self:center;text-align:center;padding:55px 0 75px}
+.room-soon-message h1{font-family:Grotesk,Arial,sans-serif;font-size:clamp(64px,10.5vw,168px);font-weight:500;line-height:.97;letter-spacing:-.075em;margin:0;text-wrap:balance}
+.room-soon-message h1 em{font-family:News,Georgia,serif;font-weight:400;letter-spacing:-.06em}
+@media(max-width:600px){
+ .room-coming-soon{padding:18px 24px 28px}
+ .room-soon-message h1{max-width:7ch;margin-inline:auto;font-size:clamp(68px,17vw,100px)}
+ .room-soon-message{padding:48px 0 64px}
+}
+@media(prefers-reduced-motion:reduce){.room-soon-return span{transition:none}}
+
+/* Membership is offered alongside the public member directory. */
+.people-membership{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:23px 0 35px;margin-top:10px;color:#171715;font:500 clamp(20px,2.3vw,30px)/1.2 Grotesk,sans-serif;letter-spacing:-.035em}
+.people-membership span{font-size:30px;font-weight:400;line-height:1}
+.people-membership:focus-visible{outline:2px solid #a12b32;outline-offset:5px}
+
+/* One compact invitation below the People wordmark. */
+#shell[data-view="people"] .page-intro{padding-bottom:22px}
+#shell[data-view="people"] .people-membership{width:fit-content;max-width:100%;justify-content:flex-start;gap:18px;margin:0 0 10px;padding:0;min-height:36px;font-size:clamp(20px,2vw,26px);line-height:1.25}
+#shell[data-view="people"] .people-membership span{font-size:24px;flex-shrink:0}
+#shell[data-view="people"] #public-people>p:only-child{grid-column:1/-1;max-width:46ch;margin:0;font-size:16px;line-height:1.5;letter-spacing:-.015em;color:var(--mute);text-wrap:pretty}
+@media(max-width:600px){
+ #shell[data-view="people"] .page-intro{padding-bottom:18px}
+ #shell[data-view="people"] .people-membership{gap:14px;margin-bottom:8px}
+ #shell[data-view="people"] #public-people>p:only-child{font-size:15px;max-width:36ch}
+}

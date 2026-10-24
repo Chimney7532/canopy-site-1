@@ -1,21 +1,15 @@
 import type { Metadata } from "next";
-import { Instrument_Sans, Newsreader } from "next/font/google";
 import "./globals.css";
-
-const canopySans = Instrument_Sans({
-  variable: "--font-canopy-sans",
-  subsets: ["latin"],
-});
-
-const canopySerif = Newsreader({
-  variable: "--font-canopy-serif",
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
-});
+import "./editorial.css";
+import "./motion.css";
 
 export const metadata: Metadata = {
-  title: "CANOPY",
-  description: "CANOPY is the eye that helps you see the forest move.",
+  title: "Canopy — Events, people & projects",
+  description: "Events, member conversations, ideas and projects at Canopy.",
+  icons: {
+    icon: [{ url: "/favicon.ico?v=64", sizes: "16x16 32x32 48x48" }, { url: "/favicon.svg?v=64", type: "image/svg+xml", sizes: "any" }],
+    shortcut: "/favicon.ico?v=64",
+  },
 };
 
 export default function RootLayout({
@@ -24,13 +18,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${canopySans.variable} ${canopySerif.variable} h-full bg-[#f4f1ea] antialiased`}
-    >
-      <body className={`${canopySans.className} flex min-h-full flex-col overflow-hidden bg-[#f4f1ea]`}>
-        {children}
-      </body>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preload" href="/assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      </head>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

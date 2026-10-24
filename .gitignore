@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/dist/
+/.wrangler/
+/.sites-runtime/
+/.dev.vars
+/.tmp/
+/.vinext/
+
